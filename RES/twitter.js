@@ -13,7 +13,7 @@ var twitterClient = {
 	signature_method: 'HMAC-SHA1',
 	redirect_uri: 'http://127.0.0.1:5000', //http://localhost:5000/
 	oauth_version: '1.0',
-	timestamp_offset: 3600, //3600 - for Moscow time, because after recently law time was shifted but wasn't updatet on ntp servers. so while debugging u should use 0
+	timestamp_offset: 0, //3600 - for Moscow time, because after recently law time was shifted but wasn't updatet on ntp servers. so while debugging u should use 0
 
 	globalTokenAccessToken: 'access_token',
 	globalTokenAccessSecret: 'access_token_secret',
