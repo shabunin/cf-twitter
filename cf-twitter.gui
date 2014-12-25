@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>cf-twitter</project>
+    <designer>
+    </designer>
+    <size autoposition="scale">
+      <portrait width="720" height="1200" />
+      <landscape width="1280" height="720" />
+    </size>
+    <autoposition />
+    <imagefolder>RES</imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="iPad (PAVEL)">D0E9980BE97B8326AD79BA2CBB094ED2</device>
+      <device name="iPad (Пётр) mini">1B100C5680D53AAD5617A895A6162677</device>
+      <device name="Sony Z3 Compact Vladimir">F20B70641D59DE7F92F3B2FE03AA5CDD</device>
+      <device name="iPad (Пётр)">613D1F8D3BC10B69F2BAB9AC0FE21F5E</device>
+      <device name="iPad (Maxim)">146AB92D1A81A55887711A14A5176697</device>
+      <device name="iPad (Sergey)">64AD3C4A1B18E82E89C9E2733CE66911</device>
+      <device name="iPad rs">B1DB067DBC7EB94B4749264D742025BB</device>
+      <device name="iPad Polyanka 4 - Vladimir">320260B42904155828E359208DFD1188</device>
+      <device name="iPad Polyanka 1">F7DECAC8D7C408BB1668B47E9F0E4305</device>
+      <device name="iPad Pollyanna 2">9DDACC7C4D46A74126F247099EB27C34</device>
+      <device name="iPad Polyanka 3">F077D6CFBD7DB8D52C023B884D51B11D</device>
+      <device name="iPad new 22">D782FCE451BD67813198C6EFB061CF7E</device>
+      <device name="Sony LT25i">15DCDE3D3B63FA8BE1DBE3E52848A155</device>
+      <device name="iPad Dmitriy">69E32DB061C09965437E713E269B7FB8</device>
+      <device name="iPad tommy">298F02C2C219D67FB45A344BD524A85D</device>
+    </devices>
+  </properties>
+  <systems>
+    <system name="localhost5000server" protocol="tcp" accept="1" alwayson="1" ip="0.0.0.0" origin="5000" maxconnections="0" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" port="10207" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" eom="" js="" textEncoding="">
+      <fb name="localhost5000feedback" regex=".*" />
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".background"><![CDATA[ background-image: url(background.jpg); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".btn_sqr[state='0']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_off.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 34px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sqr[state='1']"><![CDATA[padding: 0px 15px 10px 15px; -webkit-border-image: url(btn_sqr_on.png) 0 15 10 15; text-shadow: rgba(255,255,255,1) 1px 1px 1px; color: Black; font-size: 34px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".title"><![CDATA[ color: White; font-size: 28px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".title_1"><![CDATA[ color: White; font-size: 28px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".newtheme_1"><![CDATA[ background-color: White; border-width: 0px; border-color: White; color: Black; font-size: 24px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <tokens>
+    <token name="access_token" value="0" persist="1" />
+    <token name="access_token_secret" value="0" persist="1" />
+  </tokens>
+  <scripts>
+    <script name="base64.js" />
+    <script name="hmacsha1.js" />
+    <script name="other.js" />
+    <script name="twitter.js" />
+    <script name="timestamp.js" />
+    <script name="userMain.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="" start="1">
+    <portrait t="background">
+      <btn j="0" x="0" y="0" w="177" h="121" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="twitterClient.twitterAuthorization();">
+        <inactive s="0">Auth</inactive>
+        <active s="0">Auth</active>
+      </btn>
+      <subpage name="browser" x="0" y="250" j="100" transition1="moveIn" subtype1="fromBottom" time1="0" ease1="easeInEaseOut" transition2="moveIn" subtype2="fromBottom" time2="0" ease2="easeInEaseOut" clickthrough="0" topmost="1" v="1" l="0" tags="" />
+      <btn j="0" x="52" y="419" w="616" h="246" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="CF.getJoin('s6', function(join, value) {twitterClient.requestUpdateStatus(value);});">
+        <inactive s="0">Submit</inactive>
+        <active s="0">Submit</active>
+      </btn>
+      <img x="587" y="9" w="128" h="128" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="" />
+      <txt j="4" x="297" y="17" w="291" h="39" t="title" wrap="False" l="0" tags="">login</txt>
+      <txt j="5" x="297" y="72" w="291" h="39" t="title" wrap="False" l="0" tags="">username</txt>
+      <input j="0" s="6" x="62" y="309" w="596" h="88" pass="0" autoFocus="0" f="0" t="newtheme_1" l="0" tags="">input new status here</input>
+      <txt j="7" x="61" y="651" w="603" h="142" t="title" wrap="True" l="0" tags="">status: 200 or error </txt>
+      <btn j="0" x="0" y="120" w="177" h="121" t="btn_sqr" flip="None" sim="1" l="0" s="1" tags="" js="twitterClient.clearTokens();">
+        <inactive s="0">clear
+tokens</inactive>
+        <active s="0">clear
+tokens</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="browser" w="768" h="950" clip="1">
+    <web x="0" y="0" w="768" h="950" j="1" title="0" back="0" forward="0" refresh="0" stop="0" url="http://google.com" tags="" />
+  </subpage>
+</gui>
